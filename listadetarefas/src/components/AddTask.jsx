@@ -6,12 +6,12 @@ function AddTask({handleTaskAddition}) {
     const [inputData, setInputData] = useState("");
 
     const handleInputChange = (e) => {
-        console.log(e);
         setInputData(e.target.value)
     }
 
     const handleAddTaskClick = () => {
-        handleTaskAddition(inputData)
+        handleTaskAddition(inputData);
+        setInputData("");
     }
     return (
         <div className={styles.AddTask_container}>
