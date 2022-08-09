@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Tasks from './components/Tasks';
 import styles from './App.module.css';
+import AddTask from "./components/AddTask";
 
 function App() {
 
@@ -10,16 +11,29 @@ function App() {
       title: 'Estudar ReactJS',
       completed: false,
     },
-     
+      
     {
       id: '2',
       title: 'Ler Livros',
       completed: true,
     },
   ])
+
+  const handleTaskAddition = (taskTitle) => {
+    const newTasks = [
+      ... tasks, 
+      {
+      title: taskTitle,
+      id: Math.random(10),
+      completed: false
+    },
+  ];
+    setTasks(newTasks)
+  }
   return (
     <>
       <div className={styles.container}>
+        <AddTask handleTaskAddition={handleTaskAddition} />
         <Tasks tasks={tasks}/>
       </div>
        
