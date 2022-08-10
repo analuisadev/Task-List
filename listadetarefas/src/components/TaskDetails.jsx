@@ -15,7 +15,7 @@ function TaskDetails() {
     return (
         <>
             <div className={styles.Backbutton_container}>
-                <Button>Voltar</Button>
+                <Button onClick={handleBackButtonClick}>Voltar</Button>
             </div>
             <div className={styles.Taskdetails_container}>
                 <h2>{params.taskTitle}</h2>

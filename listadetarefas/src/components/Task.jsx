@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Task.module.css';
-import {CgClose, CgInfo} from 'react-icons/cg'
-import {useHistory} from 'react-router-dom'
+import {CgClose, CgInfo} from 'react-icons/cg';
+import {useHistory} from 'react-router-dom';
 
 function Task({task, handleTaskClick, handleTaskDeletion}) {
     const history = useHistory();
@@ -19,7 +19,10 @@ function Task({task, handleTaskClick, handleTaskDeletion}) {
                  <button 
                  className={styles.removeTask_button} 
                  onClick={() => handleTaskDeletion(task.id)}><CgClose /></button>
-                 <button className={styles.seeTask_Detailsbutton} onClick={handleTaskDetailsClick}><CgInfo /></button>
+                 <button className={styles.seeTask_Detailsbutton} onClick={handleTaskDetailsClick}
+                 >
+                   <CgInfo />
+                </button>
             </div>
         </div>
     )
