@@ -66,7 +66,7 @@ function App() {
                   handleTaskClick={handleTaskClick} handleTaskDeletion={handleTaskDeletion}/>
                 </>
             )}/>
-            <Route path="/:taskTitle " exact render={TaskDetails}/>
+            <Route path="/:taskTitle" exact component={TaskDetails}/>
         </div>
       </Router>   
     );

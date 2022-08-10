@@ -3,7 +3,7 @@ import styles from './Button.module.css'
 
 function Button({children, onClick}) {
     return (
-        <button onClick={onClick} className={styles.button}>Adicionar</button>
+        <button onClick={onClick} className={styles.button}>{children}</button>
     )
 };
 
