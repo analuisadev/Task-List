@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Tasks from './components/Tasks';
 import AddTask from "./components/AddTask";
 import Header from "./components/Header";
+import TaskDetails from "./components/TaskDetails";
 
 import styles from './App.module.css';
 
@@ -22,7 +23,7 @@ function App() {
       title: 'Ler Livros',
       completed: true,
     },
-  ])
+  ]);
 
    const handleTaskClick = (taskId => {
       const newTasks = tasks.map((task) => {
@@ -31,7 +32,7 @@ function App() {
         return task
       })
       setTasks(newTasks);
-    })
+    });
       
 
     const handleTaskAddition = (taskTitle) => {
@@ -44,27 +45,31 @@ function App() {
         },
       ];
 
-      setTasks(newTasks)
-    }
+      setTasks(newTasks);
+    };
 
     const handleTaskDeletion = (taskId) => {
-      const newTasks = tasks.filter(task => task.id !== taskId)
+      const newTasks = tasks.filter(task => task.id !== taskId);
 
-      setTasks(newTasks)
-    }
+      setTasks(newTasks);
+    };
 
     return (
       <Router>
         <div className={styles.container}>
           <Header />
-          <Route path='/' exact render={}/>
-          <AddTask handleTaskAddition={handleTaskAddition} />
-          <Tasks 
-          tasks={tasks} 
-          handleTaskClick={handleTaskClick} handleTaskDeletion={handleTaskDeletion}/>
+            <Route exact path="/" render={() => (
+                <>
+                  <AddTask handleTaskAddition={handleTaskAddition} />
+                  <Tasks
+                  tasks={tasks}
+                  handleTaskClick={handleTaskClick} handleTaskDeletion={handleTaskDeletion}/>
+                </>
+            )}/>
+            <Route path="/:taskTitle " exact render={TaskDetails}/>
         </div>
       </Router>   
-    )
-}
+    );
+};
 
 export default App;    
