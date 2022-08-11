@@ -13,3 +13,4 @@ function Tasks({ tasks, handleTaskClick, handleTaskDeletion}) {
 }
 
 export default Tasks;
+
